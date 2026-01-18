@@ -2,7 +2,7 @@
 
 以常见系统的用户领域举例子 
 
-链路：userView -> userAdapt -> userService/user
+链路：userView -> userAdapt -> userService/userEntity 
 
 ## 代码实现
 
