@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webzen UI - 开发服务器</title>
+</head>
+<body>
+  <div id="app">
+    <h1>MVP Front DDD Design</h1>
+    <div style="padding: 20px;">
+      <div style="margin-bottom: 20px;">
+        <label for="userNameInput" style="display: block; margin-bottom: 8px;">用户名：</label>
+        <input 
+          type="text" 
+          id="userNameInput" 
+          placeholder="请输入用户名"
+          style="padding: 8px; width: 200px; margin-right: 10px;"
+        />
+        <button 
+          id="setUserNameBtn"
+          style="padding: 8px 16px; margin-right: 10px;"
+        >
+          设置
+        </button>
+        <button 
+          id="getUserNameBtn"
+          style="padding: 8px 16px;"
+        >
+          读取
+        </button>
+      </div>
+      <div>
+        <label style="display: block; margin-bottom: 8px;">当前用户名：</label>
+        <div 
+          id="userNameDisplay" 
+          style="padding: 8px; border: 1px solid #ccc; min-height: 20px; width: 200px; background-color: #f5f5f5;"
+        >
+          未设置
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

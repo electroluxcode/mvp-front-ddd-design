@@ -1,0 +1,20 @@
+{
+	"name": "mvp-front-ddd-design",
+	"version": "0.0.1",
+	"description": "基于ddd设计的mvp前端demo",
+	"private": "true",
+	"scripts": {
+		"dev": "vite",
+		"tsc:build": "tsc --project ./",
+		"build": "vite build",
+		"build:ts": "vite build --config vite.ts.config.ts"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "^25.0.8",
+		"cross-env": "^7.0.3",
+		"typescript": "^4.8.3",
+		"vite": "^5.4.21",
+		"path": "^0.12.7"
+	}
+}
