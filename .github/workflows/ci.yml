@@ -1,0 +1,63 @@
+name: CI
+
+# 触发条件
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 检出代码
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 设置 pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      # 设置 Node.js 环境
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+          cache: 'pnpm'
+
+      # 安装依赖
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # TypeScript 类型检查
+      - name: Type Check
+        run: pnpm run tsc:build
+
+      # 构建项目（普通构建）
+      - name: Build
+        run: pnpm run build
+
+      # 构建 TypeScript（单独打包）
+      - name: Build TypeScript
+        run: pnpm run build:ts
+
+      # 上传构建产物（可选）
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+          retention-days: 7
+
+      - name: Upload TypeScript build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-ts
+          path: dist-ts
+          retention-days: 7
